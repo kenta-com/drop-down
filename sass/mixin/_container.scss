@@ -1,0 +1,4 @@
+@mixin container($width:80%){
+width:$width;
+margin: 0 auto;
+}

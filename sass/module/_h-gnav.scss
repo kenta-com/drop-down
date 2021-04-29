@@ -1,0 +1,118 @@
+.dropdwn{
+  width: 90%;
+  margin-left:5%;
+  display: flex;
+  text-align: center;
+  color: #fff;
+  position: fixed;
+  z-index: 2;
+  transition: .5s;
+  @include mq(tab){
+    flex-direction: column;
+    right: -100%;
+    align-items: center;
+  }
+  &__list{
+    width: 1200px;
+    margin: 0 2px;
+    background: #7ba5ff;
+    max-width: calc(90%/5);
+    position: relative;
+    display:block;
+    cursor: pointer;
+    @include mq(tab){
+      margin: 50px 0;
+    }
+    &:hover{
+      @include mq(pc){
+        .dropdwn-menu__link{
+          display: block;
+    }
+      }
+    }
+  }
+  }
+  //ハンバーガメニュー
+.hamburger_line {
+  @include mq(tab){
+      transition: all .6s;
+      width: 34px;
+      height: 2px;
+      left:5px;
+      background-color: #000;
+      position: absolute;
+    }
+  }
+
+  .nav_btn {
+    width: 44px;
+    height: 44px;
+    z-index: 300;
+    top: 7px;
+    right: 7px;
+    cursor: pointer;
+    position: absolute;
+}
+
+  .hamburger_line1 { top: 10px; }
+  .hamburger_line2 { top: 21px; }
+  .hamburger_line3 { top: 32px; }
+.dropdwn-menu{
+  width: 100%;
+  position: absolute;
+  background: rgb(75, 100, 209);
+  &__link{
+    color: #fff;
+    display: block;
+    @include mq(pc){
+      display: none;
+    }
+    transition: .3s;
+    &:hover{
+      transition: .3s;
+      background: #b3d7ff;
+      color: rgb(65, 65, 65);
+    }
+  }
+}
+
+// 表示された時用のCSS//
+.nav_open .hamburger_line1 {
+  transform: rotate(45deg);
+  top: 20px;
+}
+
+.nav_open .hamburger_line2 {
+  width: 0;
+  left: 50%;
+}
+
+.nav_open .hamburger_line3 {
+  transform: rotate(-45deg);
+  top: 20px;
+}
+.nav_open .dropdwn{
+  transition: all .5s;
+  right: 0;
+}
+// 背景
+.nav_bg{
+  @include mq(tab){
+    background-color: #000;
+    opacity: 0;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    top:0;
+    width: 0;
+    transition: .5s;
+  }
+}
+.nav_open .nav_bg{
+  @include mq(tab){
+    width: 100vw;
+    opacity: .5;
+    transition: .5s;
+  }
+}
